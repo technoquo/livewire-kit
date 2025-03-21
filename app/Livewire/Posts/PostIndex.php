@@ -18,6 +18,11 @@ class PostIndex extends Component
         session()->flash('message', 'Post deleted successfully');
     }
 
+    public function cleanSession()
+    {
+        session()->forget('message');
+    }
+
 
     public function render()
     {

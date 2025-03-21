@@ -6,6 +6,18 @@
         <!-- Image -->
         <flux:input wire:model="form.image" label="Image" type="file"   />
 
+        <div class="flex gap-2">
+            <!-- Show existing post image if no new image is uploaded -->
+            @if (!$form->image && $form->post->image)
+                <img src="{{ asset($form->post->image) }}" class="w-12 h-12 rounded-2xl">
+            @endif
+        
+            <!-- Show temporary image if a new image is uploaded -->
+            @if ($form->image)
+                <img src="{{ $form->image->temporaryUrl() }}" class="w-12 h-12 rounded-2xl">
+            @endif
+        </div>
+
         <flux:textarea wire:model="form.content" label="Content" placeholder="Content" rows="5">
           
         </flux:textarea>

@@ -6,6 +6,12 @@
         <!-- Image -->
         <flux:input wire:model="form.image" label="Image" type="file"   />
 
+        <div>
+            @if ($form->image)
+                <img src="{{ $form->image->temporaryUrl() }}" class="w-12 h-12 rounded-full">
+            @endif
+        </div>
+
         <flux:textarea wire:model="form.content" label="Content" placeholder="Content" rows="5">
           
         </flux:textarea>
